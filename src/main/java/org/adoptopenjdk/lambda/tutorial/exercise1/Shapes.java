@@ -93,6 +93,9 @@ public class Shapes {
      * @see Shape#toString()
      */
     public static void changeColorAndMakeStringOfOldColors(List<Shape> shapes, Color newColor, StringBuilder stringBuilder) {
-        // [your code here]
+        shapes.forEach(s -> {
+            stringBuilder.append(s);
+            s.setColor(newColor);
+        });
     }
 }
