@@ -60,8 +60,6 @@ public class Books {
      * @return set of publishers
      */
     public static Set<Publisher> publishersRepresentedBy(List<Book> books) {
-        // [your code here]
-
-        return Collections.emptySet();
+        return books.stream().map(b -> b.getPublisher()).collect(Collectors.toSet());
     }
 }
