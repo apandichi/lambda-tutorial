@@ -55,9 +55,10 @@ public enum ElectoralDistrict {
      * @return filtered set of registered voters in a district
      */
     public static Set<RegisteredVoter> votersIn(ElectoralDistrict district, Collection<RegisteredVoter> voters) {
-        return voters.stream().filter(v ->
+        return Collections.unmodifiableSet(
+                voters.stream().filter(v ->
                 v.getElectorId().startsWith(HACKNEY.getPrefix()))
-                .collect(Collectors.toSet());
+                .collect(Collectors.toSet()));
     }
 
     /**
