@@ -40,9 +40,7 @@ public class Books {
      * @return list of book titles
      */
     public static List<String> titlesOf(List<Book> books) {
-        // [your code here]
-        
-        return Collections.emptyList();
+        return books.stream().map(b -> b.getTitle()).collect(Collectors.toList());
     }
 
     /**
