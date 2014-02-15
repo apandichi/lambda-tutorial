@@ -50,9 +50,7 @@ public class Books {
      * @return list of author full names
      */
     public static List<String> namesOfAuthorsOf(List<Book> books) {
-        // [your code here]
-        
-        return Collections.emptyList();
+        return books.stream().map(b -> b.getAuthor().fullName()).collect(Collectors.toList());
     }
 
     /**
