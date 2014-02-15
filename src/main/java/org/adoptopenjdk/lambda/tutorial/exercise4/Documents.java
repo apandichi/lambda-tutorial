@@ -47,7 +47,7 @@ public class Documents {
 
     public static List<Integer> pageCharacterCounts(Document document) {
         return document.getPages().stream()
-                .map(doc -> Documents.characterCount(doc))
+                .map(Documents::characterCount)
                 .collect(toList());
     }
 
