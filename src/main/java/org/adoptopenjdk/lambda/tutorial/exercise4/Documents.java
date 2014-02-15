@@ -66,8 +66,9 @@ public class Documents {
         return document.getPages().stream()
                 .map(page -> page.getContent())
                 .map(content -> translator.translate(content))
-                .map(translated -> new Page(translated))
+                .map(Page::new)
                 .collect(collectingAndThen(toList(),
-                                           pages -> new Document(translator.translate(document.getTitle()), pages)));
+                                           pages -> new Document(translator.translate(document.getTitle()), pages)
+                ));
     }
 }
