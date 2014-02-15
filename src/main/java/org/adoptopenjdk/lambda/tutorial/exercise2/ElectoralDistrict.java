@@ -25,6 +25,7 @@ package org.adoptopenjdk.lambda.tutorial.exercise2;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Some (inaccurate) London electrical districts
@@ -54,9 +55,9 @@ public enum ElectoralDistrict {
      * @return filtered set of registered voters in a district
      */
     public static Set<RegisteredVoter> votersIn(ElectoralDistrict district, Collection<RegisteredVoter> voters) {
-        // [your code here]
-
-        return Collections.emptySet();
+        return voters.stream().filter(v ->
+                v.getElectorId().startsWith(HACKNEY.getPrefix()))
+                .collect(Collectors.toSet());
     }
 
     /**
