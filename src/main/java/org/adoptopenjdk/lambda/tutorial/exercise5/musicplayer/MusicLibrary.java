@@ -57,4 +57,8 @@ public interface MusicLibrary {
     }
 
     int timesPlayed(Song song);
+
+    default List<Song> sortedByArtist() {
+        return SongByArtistSorter.sort(allSongs());
+    }
 }
